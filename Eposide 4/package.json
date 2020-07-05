@@ -1,0 +1,16 @@
+{
+  "name": "test-bot",
+  "version": "0.0.1",
+  "description": "Test Bot",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js"
+  },
+  "author": "Dream Code",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.2.0",
+    "fs": "0.0.1-security",
+    "quick.db": "^7.1.1"
+  }
+}
