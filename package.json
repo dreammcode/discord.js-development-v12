@@ -1,0 +1,21 @@
+{
+  "name": "project-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "moment": "^2.29.1",
+    "ms": "^2.1.3",
+    "novelcovid": "^3.0.0",
+    "parse-ms": "^2.1.0",
+    "quick.db": "^7.1.3",
+    "randomstring": "^1.1.5"
+  }
+}
