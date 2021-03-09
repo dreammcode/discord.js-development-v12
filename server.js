@@ -114,6 +114,29 @@ client.on("message",async message => {
 }
 )
 
+
+client.on("messageDelete", async message => {
+    if(!message.guild) return;
+    if(message.author.bot) return;
+    let number = db.fetch(`snipe.${message.guild.id}`)
+    let new_number = Number(number+1)
+    if(number >= 3) {
+        let snipe_Data = db.fetch(`msnipe.${message.guild.id}`)
+
+        snipe_Data.sort((a,b) => a.date > b.date)
+        snipe_Data.splice(snipe_Data[2],1)
+        db.set(`msnipe.${message.guild.id}`,snipe_Data)
+        db.push(`msnipe.${message.guild.id}`,{author:message.author.id,content:message.content,id:new_number,date:Date.now(),channel:message.channel.id})
+    }else {
+     
+
+        db.push(`msnipe.${message.guild.id}`,{author:message.author.id,content:message.content,id:new_number,date:Date.now(),channel:message.channel.id})
+    db.add(`snipe.${message.guild.id}`,1)
+    
+    }
+})
+// let test it
+
 client.login(config.token)
 /*
 {
