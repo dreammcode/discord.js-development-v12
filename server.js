@@ -104,7 +104,17 @@ client.on("message", async message => {
 
     }
 })
-
+client.on("message", async message => {
+    if(message.content.startsWith(prefix + "afk")) return;
+    if(!db.fetch(`afk.${message.author.id}.${message.guild.id}`)) return;
+    let username = message.member.nickname ? message.member.nickname : message.author.username;
+    if(username !== message.author.username && username.startsWith("[AFK]")){
+        message.member.setNickname(db.fetch(`afk.${message.author.id}.${message.guild.id}.name`))
+    }
+    
+    db.delete(`afk.${message.author.id}.${message.guild.id}`)
+    return message.channel.send(`you are not afk`)
+})
 client.on("message",async message => {
     let coin = db.fetch(`coin.${message.author.id}`)
     //xD smart system
